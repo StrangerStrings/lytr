@@ -1,0 +1,446 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0rem;
+  background-color: rgb(240, 240, 240)
+}
+
+* {
+  box-sizing: border-box;
+}
+ .working{
+   display: none !important;
+ }
+
+.app{
+  height: 100vh;
+  width: 100vw;
+}
+
+
+
+$face-size: 15rem;
+
+.face{
+  position: absolute;
+  height: $face-size;
+  width: $face-size;
+  border-radius: 50%;
+  border: solid 0.5rem #464646;
+  background-color: rgb(241, 241, 219);
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+}
+
+.eye{
+  position: absolute;
+  width: 4rem;
+  height: 3.6rem;
+  border: solid 0.3rem #464646;
+  border-radius: 45%;
+  background-color: rgb(255, 255, 250);
+  top: 4rem;
+}
+$eye-side: 2.2rem;
+.eye-1{
+  left: $eye-side;
+}
+.eye-2{
+  right: $eye-side;
+}
+
+.pupil{
+  position: absolute;
+  height: 1.2rem;
+  width:1rem;
+  top: 1rem;
+  left:1.2rem;
+  background-color: #464646;
+  border-radius: 35%;
+  transition: top 0.1s, left 0.1s;
+}
+
+.mouth{
+  position: absolute;
+  width: 2rem;
+  background-color: #464646;
+  height: 0.3rem;
+  top: 9.7rem;
+  left: 6.1rem;
+  border-radius: 2.2rem;
+  transition: all 0.05s;
+}
+
+//top 1   left 1.2
+.candle-room:hover ~ .face{
+  .pupil{
+    left: 0.8rem;
+    top: 0.6rem;
+  }
+}
+.tube-room:hover ~ .face{
+  .pupil{
+    left: 1.6rem;
+    top: 0.6rem;
+  }
+}
+.fire-room:hover ~ .face{
+  .pupil{
+    left: 0.8rem;
+    top: 1.4rem;
+  }
+}
+.bum-room:hover ~ .face{
+  .mouth{
+    height: 3.6rem;
+    top: 8.2rem;
+    width: 3.5rem;
+    left: 5.5rem;
+  }
+  .pupil{
+    left: 1.6rem;
+    top: 1.4rem;
+    // width: 1.4rem;
+    // left: 1.4rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.room{
+  position: relative;
+  width: 50%;
+  height: 50%;
+  border: solid 0.3rem #464646;
+  display: inline-block;
+  overflow: hidden;
+  &:hover .darkness{
+    display: none;
+  }
+  img{
+    position: absolute;
+  }
+  .darkness{
+    position: absolute;
+    // display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(75, 75, 75, 0.96);
+  }
+}
+
+
+
+
+
+
+
+.candle-room {
+    img{
+    height: 65%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &:hover{
+    .candle-light-1{
+      animation: candle1 2.5s infinite cubic-bezier(.42,.13,.72,.99)
+    }
+    .candle-light-2{
+      animation: candle2 2.5s infinite cubic-bezier(.42,.13,.72,.99)
+    }
+  }
+}
+.candle-light-1, .candle-light-2{
+  position: absolute;  
+  bottom: 64%;
+  left: 51%;
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+}
+.candle-light-1{
+  background-color:#FAD787;
+}
+$cl2: 26rem;
+.candle-light-2{
+  width: $cl2;
+  height: $cl2;
+  background-color: #FBFFAD;
+  background-color: #FAFF9C;
+}
+
+$cl1s : 7rem;     $cl1b : 17rem;
+$cl1s : 5rem;     $cl1b : 10rem;
+@keyframes candle1 {
+  0%{width:$cl1s; height:$cl1s}
+  42%{width: $cl1b; height:$cl1b}
+  100%{width:$cl1s; height:$cl1s}
+}
+$cl2s : 18rem;     $cl2b : 45rem;
+$cl2s : 13rem;     $cl2b : 30rem;
+@keyframes candle2 {
+  0%{width:$cl2s; height:$cl2s}
+  47%{width: $cl2b; height:$cl2b}
+  100%{width:$cl2s; height:$cl2s}
+}
+
+
+
+
+
+
+
+
+.tube-room{
+  background-color: #464646;
+  img{
+    width: 90%;
+    top: -2%;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+  &:hover{
+    .tube-light-1{
+      animation: tube1 0.13s infinite ease-in-out
+    }
+    .tube-light-2{
+      animation: tube2 3s infinite linear
+    }
+  }
+}
+.tube-light-1, .tube-light-2{
+  position: absolute;  
+  top: 0;
+  width: 100%;
+}
+
+.tube-light-1{
+  background-color: #fff;
+  background-color: #E8FAFA;
+}
+.tube-light-2{
+  height: 100%;
+  background-color: darken(#FAFFFF,0%);
+  background-color: #fff;
+}
+
+$tl1s :11%;     $tl1b :14%;
+@keyframes tube1 {
+  0%{ height:$tl1s}
+  50%{ height:$tl1b}
+  100%{ height:$tl1s}
+}
+
+@keyframes tube2{
+  0%{ visibility: visible }
+  20% {visibility:hidden }
+  21.7% {visibility:hidden }
+  29% {visibility: visible }
+  40% {visibility:hidden }
+  41.7% {visibility:hidden }
+  43% {visibility: visible }
+  100% {visibility: visible }
+}
+
+
+
+
+
+
+.fire-room {
+  img{
+    height: 37%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%)
+  }  
+  &:hover{
+    .fire-light-1{
+      animation: fire1 1s infinite ease-in-out
+    }
+    .fire-light-2{
+      animation: fire2 3.75s infinite 
+    }
+    .fire-ember{
+      display: block;
+    }
+  }
+}
+
+.fire-light-1, .fire-light-2{
+  position: absolute;  
+  bottom: 9%;
+  left: 51%;
+  transform: translate(-51%, 50%);
+  border-radius: 50%;
+}
+.fire-light-1{
+  height: 42%;
+  // width: 45%;
+  background-color: #F78484;
+}
+.fire-light-2{
+  // height: 90%;
+  width: 70%;
+  background-color: #FADE78;
+}
+
+@keyframes fire1{
+  0%{width: 52%}
+  50%{width: 56%}
+  100%{width: 52%}
+}
+
+@keyframes fire2{
+  0%{height: 90%}
+  35%{height: 120%}
+  80%{height: 90%}
+  100%{height: 90%}
+}
+
+
+.fire-ember{
+  position: absolute;  
+  transform: translate(-51%, 50%);
+  background-color: #FADE78;
+  border-radius: 50%;
+  display: none;
+}
+
+$e1: 2rem;   $e1b: 8rem; 
+.ember-1-1{
+  left: 30%;
+  animation: ember1 2s 0.5s infinite ;
+}
+.ember-1-2{
+  left: 52%;
+  animation: ember1 3.5s infinite ;
+}
+.ember-1-3{
+  left: 72%;
+  animation: ember1 2s infinite ;
+}
+@keyframes ember1{
+  0%  { width: $e1; height: $e1; top: 60%}
+  20% { width: $e1b; height: $e1b;}
+  100%{ width: $e1; height: $e1; top: -20%}
+}
+
+$e2: 1.8rem; $e2b: 3.5rem;
+.ember-2-1{
+  left: 20%;
+  animation: ember2 1.4s 0.4s infinite ;
+}
+.ember-2-2{
+  left: 50%;
+  animation: ember2 1.5s  infinite ;
+}
+.ember-2-3{
+  left: 62%;
+  animation: ember2 1.6s 0.6s infinite ;
+}
+.ember-2-4{
+  left: 83%;
+  animation: ember2 1.3s 0.1s infinite ;
+}
+@keyframes ember2{
+  0%  {width: $e2b; height: $e2b; top: 70%}
+  100%{width: $e2; height: $e2; top: -30%}
+}
+
+$e3: 2.5rem;
+.ember-3{
+  background-color: #F78484;
+  width: $e3;
+  height: $e3;
+  animation: ember3 4s infinite backwards ;
+}
+.ember-3-1{
+  left: 22%;
+  animation-delay: 1.6s;
+}
+.ember-3-2{
+  left: 40%;
+}
+.ember-3-3{
+  left: 74%;
+  animation-delay: 2.6s;
+}
+@keyframes ember3{
+  0%  {top: 70%}
+  100%{top: -20%}
+}
+
+
+
+
+
+
+
+
+
+
+.bum-room{
+  img{
+    height: 100%;
+    bottom: -2%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+  }
+  &:hover img{
+    display: block;
+  }
+}
+.bum-light-1, .bum-light-2, .bum-light-3, .bum-light-4{
+  position: absolute;  
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+}
+
+
+.bum-light-1, .bum-light-2{
+  bottom: 0;
+  left: 0;
+}
+.bum-light-3, .bum-light-4{
+  bottom: 100%;
+  left: 100%;
+}
+
+
+.bum-light-1, .bum-light-3{
+  width: 52rem;
+  height: 52rem;
+  background-color: lighten(#E8C8E8,4%);
+}
+.bum-light-2, .bum-light-4{
+  width: 22rem;
+  height: 22rem;
+  background-color:lighten(#EBA8F0,5%);
+}
+
+// .bum-light-1{
+//   height: 33%;
+//   width: 70%;
+//   background-color: #F78484;
+// }
+
+// .bum-light-2{
+//   height: 100%;
+//   width: 80%;
+//   background-color: #FADE78;
+// }
