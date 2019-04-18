@@ -1,0 +1,408 @@
+html {
+    font-size: 62.5%;
+  }
+  body {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 0rem;
+    padding: 0;
+    margin: 0;
+    background-color: #db4747;
+    background-color: #f0f0f0;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  .working {
+    display: none !important;
+  }
+  .app {
+    height: 100vh;
+    width: 100vw;
+  }
+  .face {
+    position: absolute;
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    border: solid 0.5rem #464646;
+    background-color: #f1f1db;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+  .eye {
+    position: absolute;
+    width: 4rem;
+    height: 3.6rem;
+    border: solid 0.3rem #464646;
+    border-radius: 45%;
+    background-color: #fffffa;
+    top: 4rem;
+  }
+  .eye-1 {
+    left: 2.2rem;
+  }
+  .eye-2 {
+    right: 2.2rem;
+  }
+  .pupil {
+    position: absolute;
+    height: 1.2rem;
+    width: 1rem;
+    top: 1rem;
+    left: 1.2rem;
+    background-color: #464646;
+    border-radius: 35%;
+    transition: top 0.1s, left 0.1s;
+  }
+  .mouth {
+    position: absolute;
+    width: 2rem;
+    background-color: #464646;
+    height: 0.3rem;
+    top: 9.7rem;
+    left: 6.1rem;
+    border-radius: 2.2rem;
+    transition: all 0.05s;
+  }
+  .candle-room:hover ~ .face .pupil {
+    left: 0.8rem;
+    top: 0.6rem;
+  }
+  .tube-room:hover ~ .face .pupil {
+    left: 1.6rem;
+    top: 0.6rem;
+  }
+  .fire-room:hover ~ .face .pupil {
+    left: 0.8rem;
+    top: 1.4rem;
+  }
+  .bum-room:hover ~ .face .mouth {
+    height: 3.6rem;
+    top: 8.2rem;
+    width: 3.5rem;
+    left: 5.5rem;
+  }
+  .bum-room:hover ~ .face .pupil {
+    left: 1.6rem;
+    top: 1.4rem;
+  }
+  .room {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    border: solid 0.3rem #464646;
+    display: inline-block;
+    overflow: hidden;
+  }
+  .room:hover .darkness {
+    display: none;
+  }
+  .room img {
+    position: absolute;
+  }
+  .room .darkness {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(75, 75, 75, 0.96);
+  }
+  .candle-room img {
+    height: 65%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .candle-room:hover .candle-light-1 {
+    animation: candle1 2.5s infinite cubic-bezier(0.42, 0.13, 0.72, 0.99);
+  }
+  .candle-room:hover .candle-light-2 {
+    animation: candle2 2.5s infinite cubic-bezier(0.42, 0.13, 0.72, 0.99);
+  }
+  .candle-light-1, .candle-light-2 {
+    position: absolute;
+    bottom: 64%;
+    left: 51%;
+    transform: translate(-50%, 50%);
+    border-radius: 50%;
+  }
+  .candle-light-1 {
+    background-color: #fad787;
+  }
+  .candle-light-2 {
+    width: 26rem;
+    height: 26rem;
+    background-color: #fbffad;
+    background-color: #faff9c;
+  }
+  @keyframes candle1 {
+    0% {
+      width: 5rem;
+      height: 5rem;
+    }
+    42% {
+      width: 10rem;
+      height: 10rem;
+    }
+    100% {
+      width: 5rem;
+      height: 5rem;
+    }
+  }
+  @keyframes candle2 {
+    0% {
+      width: 13rem;
+      height: 13rem;
+    }
+    47% {
+      width: 30rem;
+      height: 30rem;
+    }
+    100% {
+      width: 13rem;
+      height: 13rem;
+    }
+  }
+  .tube-room {
+    background-color: #464646;
+  }
+  .tube-room img {
+    width: 90%;
+    top: -2%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .tube-room:hover .tube-light-1 {
+    animation: tube1 0.13s infinite ease-in-out;
+  }
+  .tube-room:hover .tube-light-2 {
+    animation: tube2 3s infinite linear;
+  }
+  .tube-light-1, .tube-light-2 {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .tube-light-1 {
+    background-color: #fff;
+    background-color: #e8fafa;
+  }
+  .tube-light-2 {
+    height: 100%;
+    background-color: #faffff;
+    background-color: #fff;
+  }
+  @keyframes tube1 {
+    0% {
+      height: 11%;
+    }
+    50% {
+      height: 14%;
+    }
+    100% {
+      height: 11%;
+    }
+  }
+  @keyframes tube2 {
+    0% {
+      visibility: visible;
+    }
+    20% {
+      visibility: hidden;
+    }
+    21.7% {
+      visibility: hidden;
+    }
+    29% {
+      visibility: visible;
+    }
+    40% {
+      visibility: hidden;
+    }
+    41.7% {
+      visibility: hidden;
+    }
+    43% {
+      visibility: visible;
+    }
+    100% {
+      visibility: visible;
+    }
+  }
+  .fire-room img {
+    height: 37%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .fire-room:hover .fire-light-1 {
+    animation: fire1 1s infinite ease-in-out;
+  }
+  .fire-room:hover .fire-light-2 {
+    animation: fire2 3.75s infinite;
+  }
+  .fire-room:hover .fire-ember {
+    display: block;
+  }
+  .fire-light-1, .fire-light-2 {
+    position: absolute;
+    bottom: 9%;
+    left: 51%;
+    transform: translate(-51%, 50%);
+    border-radius: 50%;
+  }
+  .fire-light-1 {
+    height: 42%;
+    background-color: #f78484;
+  }
+  .fire-light-2 {
+    width: 70%;
+    background-color: #fade78;
+  }
+  @keyframes fire1 {
+    0% {
+      width: 52%;
+    }
+    50% {
+      width: 56%;
+    }
+    100% {
+      width: 52%;
+    }
+  }
+  @keyframes fire2 {
+    0% {
+      height: 90%;
+    }
+    35% {
+      height: 120%;
+    }
+    80% {
+      height: 90%;
+    }
+    100% {
+      height: 90%;
+    }
+  }
+  .fire-ember {
+    position: absolute;
+    transform: translate(-51%, 50%);
+    background-color: #fade78;
+    border-radius: 50%;
+    display: none;
+  }
+  .ember-1-1 {
+    left: 30%;
+    animation: ember1 2s 0.5s infinite;
+  }
+  .ember-1-2 {
+    left: 52%;
+    animation: ember1 3.5s infinite;
+  }
+  .ember-1-3 {
+    left: 72%;
+    animation: ember1 2s infinite;
+  }
+  @keyframes ember1 {
+    0% {
+      width: 2rem;
+      height: 2rem;
+      top: 60%;
+    }
+    20% {
+      width: 8rem;
+      height: 8rem;
+    }
+    100% {
+      width: 2rem;
+      height: 2rem;
+      top: -20%;
+    }
+  }
+  .ember-2-1 {
+    left: 20%;
+    animation: ember2 1.4s 0.4s infinite;
+  }
+  .ember-2-2 {
+    left: 50%;
+    animation: ember2 1.5s infinite;
+  }
+  .ember-2-3 {
+    left: 62%;
+    animation: ember2 1.6s 0.6s infinite;
+  }
+  .ember-2-4 {
+    left: 83%;
+    animation: ember2 1.3s 0.1s infinite;
+  }
+  @keyframes ember2 {
+    0% {
+      width: 3.5rem;
+      height: 3.5rem;
+      top: 70%;
+    }
+    100% {
+      width: 1.8rem;
+      height: 1.8rem;
+      top: -30%;
+    }
+  }
+  .ember-3 {
+    background-color: #f78484;
+    width: 2.5rem;
+    height: 2.5rem;
+    animation: ember3 4s infinite backwards;
+  }
+  .ember-3-1 {
+    left: 22%;
+    animation-delay: 1.6s;
+  }
+  .ember-3-2 {
+    left: 40%;
+  }
+  .ember-3-3 {
+    left: 74%;
+    animation-delay: 2.6s;
+  }
+  @keyframes ember3 {
+    0% {
+      top: 70%;
+    }
+    100% {
+      top: -20%;
+    }
+  }
+  .bum-room img {
+    height: 100%;
+    bottom: -2%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+  }
+  .bum-room:hover img {
+    display: block;
+  }
+  .bum-light-1, .bum-light-2, .bum-light-3, .bum-light-4 {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    border-radius: 50%;
+  }
+  .bum-light-1, .bum-light-2 {
+    bottom: 0;
+    left: 0;
+  }
+  .bum-light-3, .bum-light-4 {
+    bottom: 100%;
+    left: 100%;
+  }
+  .bum-light-1, .bum-light-3 {
+    width: 52rem;
+    height: 52rem;
+    background-color: #eed6ee;
+  }
+  .bum-light-2, .bum-light-4 {
+    width: 22rem;
+    height: 22rem;
+    background-color: #f0bef4;
+  }
+  
